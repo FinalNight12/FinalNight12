@@ -1,10 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>FinalNight12</title>
+<meta charset="UTF-8">
+<title>FinalNight Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  font-family: 'Cinzel', serif;
+  overflow: hidden;
+  color: white;
+}
+
+/* 🎥 Background Video */
+#bg-video {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* 🌑 Dark Overlay */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  z-index: -2;
+}
+
+/* 💥 Container */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* ✨ Title Glitch */
+.glitch {
+  font-size: 60px;
+  position: relative;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px red; }
+  20% { text-shadow: -2px -2px blue; }
+  40% { text-shadow: 2px -2px red; }
+  60% { text-shadow: -2px 2px blue; }
+  100% { text-shadow: 2px 2px red; }
+}
+
+/* 🎬 Fade In */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translate(-50%,-45%);}
+  to {opacity: 1; transform: translate(-50%,-50%);}
+}
+
+/* 🔘 Button */
+.btn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+/* 📺 Loading Screen */
+#loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+</style>
 </head>
-<body style="background:black; color:white; text-align:center; padding-top:100px;">
-  <h1>FinalNight12</h1>
-  <p>Welcome to my website</p>
+
+<body>
+
+<!-- 🎬 Loading -->
+<div id="loading">LOADING EXPERIENCE...</div>
+
+<!-- 🎥 Background -->
+<video autoplay muted loop id="bg-video">
+  <source src="bg.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- 🎮 Content -->
+<div class="container">
+  <div class="glitch">FinalNight12</div>
+
+  <p>
+    A psychological horror experience built from archived files.<br>
+    These are not stories. These are records.
+  </p>
+
+  <button class="btn" onclick="enter()">ENTER EXPERIENCE</button>
+
+  <p style="margin-top:20px;">
+    @FinalNight12 on Discord | TikTok | YouTube | X
+  </p>
+</div>
+
+<!-- 🔊 Sound -->
+<audio id="audio" loop>
+  <source src="horror.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// 🕒 loading screen
+window.onload = () => {
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+  }, 2000);
+};
+
+// 🎧 start sound on click
+function enter(){
+  document.getElementById("audio").play();
+  alert("Welcome to the experience...");
+}
+</script>
+
 </body>
 </html>
