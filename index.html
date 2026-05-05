@@ -1,112 +1,272 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FinalNight12</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Creepster&family=VT323&display=swap');
-
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #000000;
-      color: #ffffff;
-      font-family: 'VT323', monospace;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .content {
-      z-index: 2;
+    body{
+      background:#000;
+      color:white;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      font-family:'Poppins', sans-serif;
+      position:relative;
     }
 
-    h1 {
-      font-family: 'Creepster', cursive;
-      font-size: 6.5rem;
-      margin: 0 0 20px 0;
-      color: #f0f0f0;
-      text-shadow: 
-        0 0 10px #ffffff,
-        0 0 20px #ffffff,
-        0 0 40px #ff0000,
-        0 0 60px #ff0000;
-      animation: flicker 1.2s infinite alternate;
+    /* خلفية خفيفة */
+    body::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
+      z-index:0;
     }
 
-    p {
-      font-size: 1.55rem;
-      max-width: 720px;
-      margin: 0 auto 60px;
-      color: #cccccc;
-      line-height: 1.5;
+    .content{
+      position:relative;
+      z-index:2;
+      padding:20px;
+      animation: fadeIn 2s ease;
     }
 
-    .social-text {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: #888888;
+    /* عنوان اللعبة */
+    h1{
+      font-family:'Creepster', cursive;
+      font-size:7rem;
+      color:#fff;
+      margin-bottom:30px;
+
+      text-shadow:
+      0 0 5px #fff,
+      0 0 15px #fff,
+      0 0 30px rgba(255,255,255,0.7);
+
+      animation:flicker 2s infinite;
     }
 
-    .socials a {
-      font-size: 3.2rem;
-      margin: 0 20px;
-      color: #bbbbbb;
-      transition: all 0.3s;
-      text-decoration: none;
+    /* وصف اللعبة */
+    .description{
+      max-width:800px;
+      margin:auto;
+      font-size:1.2rem;
+      line-height:2;
+      color:#d6d6d6;
+      font-weight:300;
+      letter-spacing:1px;
+      margin-bottom:55px;
     }
 
-    .socials a:hover {
-      color: #ff3333;
-      transform: scale(1.3);
-      text-shadow: 0 0 15px #ff0000;
+    .description span{
+      color:#ffffff;
+      font-weight:500;
     }
 
-    /* تأثير الوميض */
-    @keyframes flicker {
-      0%   { opacity: 0.95; }
-      50%  { opacity: 0.65; }
-      100% { opacity: 0.98; }
+    /* النص فوق السوشال */
+    .social-text{
+      font-size:1rem;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:#777;
+      margin-bottom:25px;
     }
 
-    /* تأثير مطر خفيف اختياري */
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: repeating-linear-gradient(
+    /* ايقونات التواصل */
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      width:62px;
+      height:62px;
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:1.5rem;
+      text-decoration:none;
+
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(4px);
+
+      transition:0.35s ease;
+    }
+
+    .socials a:hover{
+      transform:translateY(-6px) scale(1.08);
+      border-color:#ffffff;
+      box-shadow:
+      0 0 15px rgba(255,255,255,0.4),
+      0 0 40px rgba(255,255,255,0.15);
+    }
+
+    /* تأثير تشغيل/انطفاء */
+    @keyframes flicker{
+      0%{
+        opacity:1;
+      }
+
+      10%{
+        opacity:0.4;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      30%{
+        opacity:0.7;
+      }
+
+      40%{
+        opacity:1;
+      }
+
+      50%{
+        opacity:0.2;
+      }
+
+      60%{
+        opacity:1;
+      }
+
+      100%{
+        opacity:0.95;
+      }
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* خطوط شاشة رعب */
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:
+      repeating-linear-gradient(
         transparent 0px,
         transparent 2px,
         rgba(255,255,255,0.03) 3px
       );
-      pointer-events: none;
-      animation: rain 0.4s linear infinite;
+      pointer-events:none;
+      z-index:1;
+      animation:scan 0.3s linear infinite;
     }
+
+    @keyframes scan{
+      from{
+        transform:translateY(0);
+      }
+
+      to{
+        transform:translateY(3px);
+      }
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:4rem;
+      }
+
+      .description{
+        font-size:1rem;
+        line-height:1.8;
+      }
+
+      .socials a{
+        width:55px;
+        height:55px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <div class="content">
-    <h1>FinalNight12</h1>
-    <p>FinalNight12 is a psychological horror experience built from archived horror files.<br>
-    Each file documents a different case... based on real events.<br>
-    These are not just stories. They are records of what actually happened.</p>
 
-    <div class="social-text">@FinalNight12 on Socials</div>
-    
-    <div class="socials">
-      <a href="رابط_الديسكورد" target="_blank" title="Discord">🟣</a>
-      <a href="رابط_الانستغرام" target="_blank" title="Instagram">📷</a>
-      <a href="رابط_اكس" target="_blank" title="X">𝕏</a>
-      <a href="رابط_التيكتوك" target="_blank" title="TikTok">🎵</a>
-      <a href="رابط_اليوتيوب" target="_blank" title="YouTube">▶️</a>
+    <h1>FinalNight12</h1>
+
+    <div class="description">
+      <span>FinalNight12</span> is a psychological horror experience built from archived horror files.
+      <br><br>
+      Each file documents a different case based on real events.
+      <br>
+      These are not just stories.
+      <br>
+      They are records of what actually happened.
     </div>
+
+    <div class="social-text">
+      @finalnight12 on socials
+    </div>
+
+    <div class="socials">
+
+      <!-- Discord -->
+      <a href="https://discord.com/" target="_blank">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/finalnight12" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <!-- X -->
+      <a href="https://x.com/finalnight12" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@finalnight12" target="_blank">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/@finalnight12" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+    </div>
+
   </div>
 
   <div class="overlay"></div>
+
 </body>
 </html>
