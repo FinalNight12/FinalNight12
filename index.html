@@ -1,80 +1,338 @@
-<!-- عدل فقط جزء h1 + socials -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+  <title>FinalNight12</title>
 
-  /* عنوان اللعبة */
-  h1{
-    font-family:'Creepster', cursive;
-    font-size:5rem;
-    font-weight:normal;
-    color:#fff;
-    margin-bottom:25px;
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    text-shadow:
-    0 0 4px rgba(255,255,255,0.7),
-    0 0 10px rgba(255,255,255,0.4);
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-    /* وميض خفيف جدًا */
-    animation:softFlicker 5s infinite;
-  }
+  <style>
 
-  @keyframes softFlicker{
-
-    0%{
-      opacity:1;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    48%{
-      opacity:0.96;
+    body{
+      background:#000;
+      color:white;
+      font-family:'Poppins', sans-serif;
+
+      height:100vh;
+      overflow:hidden;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      text-align:center;
+
+      position:relative;
     }
 
-    50%{
-      opacity:0.82;
+    /* Glow */
+    body::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+      radial-gradient(circle at center,
+      rgba(255,255,255,0.05),
+      transparent 70%);
+
+      z-index:0;
     }
 
-    52%{
-      opacity:1;
+    .content{
+      position:relative;
+      z-index:2;
+
+      width:100%;
+      padding:20px;
+
+      animation:fadeIn 2s ease;
     }
 
-    100%{
-      opacity:0.97;
+    /* Title */
+    h1{
+      font-family:'Creepster', cursive;
+
+      font-size:5rem;
+      font-weight:normal;
+
+      color:#fff;
+
+      margin-bottom:10px;
+
+      text-shadow:
+      0 0 4px rgba(255,255,255,0.6),
+      0 0 10px rgba(255,255,255,0.25);
+
+      animation:softFlicker 5s infinite;
     }
 
-  }
+    /* Flicker */
+    @keyframes softFlicker{
 
-</style>
+      0%{
+        opacity:1;
+      }
 
-<!-- السوشال ميديا -->
-<div class="socials">
+      48%{
+        opacity:0.97;
+      }
 
-  <!-- Discord -->
-  <a href="https://discord.gg/YOURSERVER" target="_blank">
-    <i class="fa-brands fa-discord"></i>
-  </a>
+      50%{
+        opacity:0.85;
+      }
 
-  <!-- Instagram -->
-  <a href="https://instagram.com/finalnight12" target="_blank">
-    <i class="fa-brands fa-instagram"></i>
-  </a>
+      52%{
+        opacity:1;
+      }
 
-  <!-- X -->
-  <a href="https://x.com/finalnight12" target="_blank">
-    <i class="fa-brands fa-x-twitter"></i>
-  </a>
+      100%{
+        opacity:0.98;
+      }
 
-  <!-- TikTok -->
-  <a href="https://tiktok.com/@finalnight12" target="_blank">
-    <i class="fa-brands fa-tiktok"></i>
-  </a>
+    }
 
-  <!-- YouTube -->
-  <a href="https://youtube.com/@finalnight12" target="_blank">
-    <i class="fa-brands fa-youtube"></i>
-  </a>
+    /* Description */
+    .description{
 
-  <!-- Twitch -->
-  <a href="https://twitch.tv/finalnight12" target="_blank">
-    <i class="fa-brands fa-twitch"></i>
-  </a>
+      max-width:1100px;
 
-</div>
+      margin:auto;
+      margin-bottom:55px;
+
+      color:#d0d0d0;
+
+      font-size:1.05rem;
+      line-height:1.9;
+
+      font-weight:300;
+
+      letter-spacing:0.5px;
+    }
+
+    /* Game name inside description */
+    .game-name{
+
+      color:#ffffff;
+
+      letter-spacing:8px;
+
+      font-weight:500;
+
+      margin-right:6px;
+    }
+
+    /* Social text */
+    .social-text{
+
+      color:#777;
+
+      font-size:0.95rem;
+
+      letter-spacing:4px;
+
+      text-transform:uppercase;
+
+      margin-bottom:24px;
+    }
+
+    /* Social icons */
+    .socials{
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      gap:22px;
+
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+
+      width:60px;
+      height:60px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:18px;
+
+      color:white;
+
+      font-size:1.4rem;
+
+      text-decoration:none;
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      background:rgba(255,255,255,0.03);
+
+      transition:0.3s ease;
+    }
+
+    .socials a:hover{
+
+      transform:translateY(-5px);
+
+      border-color:white;
+
+      box-shadow:
+      0 0 15px rgba(255,255,255,0.25);
+    }
+
+    /* Scanlines */
+    .overlay{
+
+      position:absolute;
+      inset:0;
+
+      background:
+      repeating-linear-gradient(
+      transparent 0px,
+      transparent 2px,
+      rgba(255,255,255,0.03) 3px
+      );
+
+      pointer-events:none;
+
+      z-index:1;
+
+      animation:scan 0.25s linear infinite;
+    }
+
+    @keyframes scan{
+
+      from{
+        transform:translateY(0);
+      }
+
+      to{
+        transform:translateY(3px);
+      }
+
+    }
+
+    @keyframes fadeIn{
+
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* Mobile */
+    @media(max-width:768px){
+
+      h1{
+        font-size:3.7rem;
+      }
+
+      .description{
+        font-size:0.95rem;
+        line-height:1.8;
+        padding:0 10px;
+      }
+
+      .game-name{
+        letter-spacing:5px;
+      }
+
+      .socials a{
+        width:54px;
+        height:54px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="content">
+
+    <h1>FinalNight12</h1>
+
+    <div class="description">
+
+      <span class="game-name">
+        F i n a l N i g h t 1 2
+      </span>
+
+      ...
+
+      is a psychological horror experience built from archived horror files ...
+
+      each file documents a different case based on real events ...
+
+      these are not just stories ...
+
+      they are records of what actually happened.
+
+    </div>
+
+    <div class="social-text">
+      @finalnight12 on socials
+    </div>
+
+    <div class="socials">
+
+      <!-- Discord -->
+      <a href="https://discord.gg/YOURSERVER" target="_blank">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/finalnight12" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <!-- X -->
+      <a href="https://x.com/finalnight12" target="_blank">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@finalnight12" target="_blank">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/@finalnight12" target="_blank">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <!-- Twitch -->
+      <a href="https://twitch.tv/finalnight12" target="_blank">
+        <i class="fa-brands fa-twitch"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="overlay"></div>
+
+</body>
+</html>
