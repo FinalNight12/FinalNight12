@@ -37,7 +37,6 @@
       position:relative;
     }
 
-    /* Background glow */
     body::before{
       content:"";
       position:absolute;
@@ -61,14 +60,13 @@
       animation:fadeIn 2s ease;
     }
 
-    /* Title */
     h1{
       font-family:'Creepster', cursive;
 
       font-size:5rem;
       font-weight:normal;
 
-      color:#ffffff;
+      color:#fff;
 
       margin-bottom:10px;
 
@@ -79,28 +77,13 @@
       animation:softFlicker 5s infinite;
     }
 
-    /* Soft flicker */
     @keyframes softFlicker{
 
-      0%{
-        opacity:1;
-      }
-
-      48%{
-        opacity:0.97;
-      }
-
-      50%{
-        opacity:0.85;
-      }
-
-      52%{
-        opacity:1;
-      }
-
-      100%{
-        opacity:0.98;
-      }
+      0%{opacity:1;}
+      48%{opacity:0.97;}
+      50%{opacity:0.85;}
+      52%{opacity:1;}
+      100%{opacity:0.98;}
 
     }
 
@@ -122,12 +105,12 @@
       letter-spacing:0.4px;
     }
 
-    /* Game name inside description */
+    /* اسم اللعبة داخل الوصف */
     .game-name{
 
       color:#ffffff;
 
-      letter-spacing:2px;
+      letter-spacing:1px;
 
       font-weight:500;
     }
@@ -183,16 +166,11 @@
     }
 
     .socials a:hover{
-
       transform:translateY(-5px);
-
       border-color:white;
-
-      box-shadow:
-      0 0 15px rgba(255,255,255,0.25);
+      box-shadow:0 0 15px rgba(255,255,255,0.25);
     }
 
-    /* Scan lines */
     .overlay{
 
       position:absolute;
@@ -213,38 +191,18 @@
     }
 
     @keyframes scan{
-
-      from{
-        transform:translateY(0);
-      }
-
-      to{
-        transform:translateY(3px);
-      }
-
+      from{transform:translateY(0);}
+      to{transform:translateY(3px);}
     }
 
-    /* Fade in */
     @keyframes fadeIn{
-
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
-    /* Mobile */
     @media(max-width:768px){
 
-      h1{
-        font-size:3.7rem;
-      }
+      h1{font-size:3.7rem;}
 
       .description{
         font-size:0.95rem;
@@ -271,9 +229,7 @@
 
     <div class="description">
 
-      <span class="game-name">
-        FinalNight12
-      </span>
+      <span class="game-name">FinalNight12</span>
 
       ...
 
@@ -293,32 +249,26 @@
 
     <div class="socials">
 
-      <!-- Discord -->
       <a href="https://discord.gg/3tEPay3z2" target="_blank">
         <i class="fa-brands fa-discord"></i>
       </a>
 
-      <!-- Instagram -->
       <a href="https://instagram.com/finalnight12" target="_blank">
         <i class="fa-brands fa-instagram"></i>
       </a>
 
-      <!-- X -->
       <a href="https://x.com/finalnight12" target="_blank">
         <i class="fa-brands fa-x-twitter"></i>
       </a>
 
-      <!-- TikTok -->
       <a href="https://tiktok.com/@finalnight12" target="_blank">
         <i class="fa-brands fa-tiktok"></i>
       </a>
 
-      <!-- YouTube -->
       <a href="https://www.youtube.com/channel/UCZA1MQWS_yR4YKM66zA8izg" target="_blank">
         <i class="fa-brands fa-youtube"></i>
       </a>
 
-      <!-- Twitch -->
       <a href="https://twitch.tv/finalnight12" target="_blank">
         <i class="fa-brands fa-twitch"></i>
       </a>
