@@ -6,7 +6,7 @@
 
 <title>FINALNIGHT12</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
@@ -20,18 +20,18 @@
 
 body{
 
-  background:#0b0b0b;
+  background:#050505;
   overflow:hidden;
 
   font-family:'Inter',sans-serif;
-  color:#e8e2d8;
+  color:#f3eee6;
 
   height:100vh;
 
   position:relative;
 }
 
-/* خلفية متحف */
+/* خلفية سينمائية فخمة */
 
 .background{
 
@@ -39,39 +39,40 @@ body{
   inset:0;
 
   background:
-  linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.92)),
-  url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1974&auto=format&fit=crop');
+  linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.88)),
+  url('https://images.unsplash.com/photo-1518998053901-5348d3961a04?q=80&w=2070&auto=format&fit=crop');
 
   background-size:cover;
   background-position:center;
 
-  filter:brightness(0.45) contrast(1.1);
+  filter:brightness(0.42) contrast(1.08);
 
-  transform:scale(1.05);
+  transform:scale(1.04);
 }
 
-/* إضاءة */
+/* إضاءة متحف */
 
-.light{
+.spotlight{
 
   position:absolute;
-  top:-20%;
+
+  top:-15%;
   left:50%;
 
   transform:translateX(-50%);
 
-  width:700px;
-  height:700px;
+  width:1000px;
+  height:1000px;
 
   background:
   radial-gradient(circle,
-  rgba(255,240,210,0.13),
-  transparent 70%);
+  rgba(255,245,220,0.13),
+  transparent 65%);
 
   pointer-events:none;
 }
 
-/* grain */
+/* طبقة grain سينمائية */
 
 .noise{
 
@@ -80,209 +81,25 @@ body{
 
   background-image:url("https://i.imgur.com/oM0ZL4P.png");
 
-  opacity:0.035;
+  opacity:0.03;
 
   mix-blend-mode:soft-light;
 }
 
-/* إطار */
+/* إطار فاخر */
 
 .frame{
 
   position:absolute;
 
-  top:40px;
-  left:40px;
-  right:40px;
-  bottom:40px;
+  inset:35px;
 
   border:1px solid rgba(255,255,255,0.08);
 
   pointer-events:none;
 }
 
-/* المحتوى */
-
-.container{
-
-  position:relative;
-  z-index:5;
-
-  width:100%;
-  height:100%;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  padding:40px;
-}
-
-.panel{
-
-  width:100%;
-  max-width:1100px;
-
-  backdrop-filter:blur(5px);
-
-  background:rgba(12,12,12,0.45);
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  padding:80px;
-
-  box-shadow:
-  0 0 80px rgba(0,0,0,0.55);
-
-  animation:fadeUp 1.8s ease;
-}
-
-/* العنوان */
-
-.logo{
-
-  font-family:'Cinzel',serif;
-
-  font-size:5.5rem;
-
-  font-weight:700;
-
-  letter-spacing:12px;
-
-  margin-bottom:20px;
-
-  color:#f1eadf;
-
-  text-transform:uppercase;
-}
-
-.subtitle{
-
-  color:#8d8578;
-
-  letter-spacing:8px;
-
-  text-transform:uppercase;
-
-  margin-bottom:45px;
-
-  font-size:0.85rem;
-}
-
-/* الوصف */
-
-.description{
-
-  max-width:850px;
-
-  line-height:2.1;
-
-  font-size:1rem;
-
-  color:#c7c1b7;
-
-  font-weight:300;
-
-  margin-bottom:60px;
-}
-
-/* الزر */
-
-.enter{
-
-  display:inline-flex;
-  align-items:center;
-  gap:16px;
-
-  padding:18px 38px;
-
-  text-decoration:none;
-
-  color:#f5ede1;
-
-  border:1px solid rgba(255,255,255,0.1);
-
-  background:rgba(255,255,255,0.03);
-
-  letter-spacing:5px;
-
-  text-transform:uppercase;
-
-  transition:0.35s ease;
-}
-
-.enter:hover{
-
-  background:#f5ede1;
-  color:black;
-
-  transform:translateY(-4px);
-
-  box-shadow:
-  0 15px 35px rgba(0,0,0,0.4);
-}
-
-/* سوشال */
-
-.bottom{
-
-  margin-top:80px;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:25px;
-}
-
-.social-text{
-
-  color:#7d766b;
-
-  letter-spacing:5px;
-
-  text-transform:uppercase;
-
-  font-size:0.8rem;
-}
-
-.socials{
-
-  display:flex;
-  gap:14px;
-}
-
-.socials a{
-
-  width:52px;
-  height:52px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  text-decoration:none;
-
-  color:#d8d1c6;
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  background:rgba(255,255,255,0.03);
-
-  transition:0.3s ease;
-}
-
-.socials a:hover{
-
-  background:#f5ede1;
-  color:black;
-
-  transform:translateY(-3px);
-}
-
-/* خطوط خفيفة */
+/* خطوط */
 
 .lines{
 
@@ -292,11 +109,207 @@ body{
   background:
   repeating-linear-gradient(
   transparent 0px,
-  transparent 3px,
-  rgba(255,255,255,0.015) 4px
+  transparent 2px,
+  rgba(255,255,255,0.015) 3px
   );
 
   pointer-events:none;
+}
+
+/* المحتوى */
+
+.container{
+
+  position:relative;
+  z-index:10;
+
+  width:100%;
+  height:100%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:60px;
+}
+
+/* اللوحة */
+
+.panel{
+
+  width:100%;
+  max-width:1300px;
+
+  padding:90px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  rgba(15,15,15,0.58),
+  rgba(8,8,8,0.78)
+  );
+
+  border:1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+  0 40px 120px rgba(0,0,0,0.75);
+
+  animation:fadeUp 1.7s ease;
+}
+
+/* الشعار */
+
+.logo{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:7rem;
+
+  font-weight:600;
+
+  letter-spacing:10px;
+
+  color:#f6f1e7;
+
+  text-transform:uppercase;
+
+  line-height:0.95;
+
+  margin-bottom:12px;
+}
+
+.logo-sub{
+
+  color:#9d9488;
+
+  letter-spacing:12px;
+
+  font-size:0.8rem;
+
+  text-transform:uppercase;
+
+  margin-bottom:55px;
+}
+
+/* الوصف */
+
+.description{
+
+  max-width:950px;
+
+  color:#d5cec2;
+
+  font-size:1.08rem;
+
+  line-height:2.25;
+
+  font-weight:300;
+
+  margin-bottom:70px;
+}
+
+/* زر الدخول */
+
+.enter{
+
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+
+  padding:20px 44px;
+
+  text-decoration:none;
+
+  color:#f3eee6;
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  background:rgba(255,255,255,0.03);
+
+  letter-spacing:6px;
+
+  text-transform:uppercase;
+
+  transition:0.4s ease;
+
+  margin-bottom:90px;
+}
+
+.enter:hover{
+
+  background:#f3eee6;
+  color:#050505;
+
+  transform:translateY(-4px);
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.45);
+}
+
+/* الفوتر */
+
+.footer{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:30px;
+}
+
+/* النص */
+
+.archive{
+
+  color:#7f786d;
+
+  letter-spacing:7px;
+
+  text-transform:uppercase;
+
+  font-size:0.78rem;
+}
+
+/* السوشال */
+
+.socials{
+
+  display:flex;
+  gap:14px;
+}
+
+.socials a{
+
+  width:56px;
+  height:56px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-decoration:none;
+
+  color:#e7dfd3;
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  background:rgba(255,255,255,0.03);
+
+  transition:0.35s ease;
+
+  font-size:1.1rem;
+}
+
+.socials a:hover{
+
+  background:#f3eee6;
+  color:#050505;
+
+  transform:translateY(-4px);
 }
 
 /* انيميشن */
@@ -305,7 +318,7 @@ body{
 
   from{
     opacity:0;
-    transform:translateY(40px);
+    transform:translateY(45px);
   }
 
   to{
@@ -317,23 +330,23 @@ body{
 
 /* موبايل */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
   .panel{
-    padding:45px 28px;
+    padding:50px 28px;
   }
 
   .logo{
-    font-size:3rem;
-    letter-spacing:6px;
+    font-size:4rem;
+    letter-spacing:5px;
   }
 
   .description{
-    font-size:0.92rem;
-    line-height:1.9;
+    font-size:0.95rem;
+    line-height:2;
   }
 
-  .bottom{
+  .footer{
     flex-direction:column;
     align-items:flex-start;
   }
@@ -347,7 +360,7 @@ body{
 
 <div class="background"></div>
 
-<div class="light"></div>
+<div class="spotlight"></div>
 
 <div class="noise"></div>
 
@@ -363,54 +376,54 @@ body{
       FINALNIGHT12
     </div>
 
-    <div class="subtitle">
-      ARCHIVED HORROR COLLECTION
+    <div class="logo-sub">
+      CURATED HORROR ARCHIVE
     </div>
 
     <div class="description">
 
-      Welcome to the FinalNight12 archive.
+      FinalNight12 is an interactive cinematic horror archive inspired by abandoned investigations, recovered recordings, and psychological nightmare cases.
 
-      A curated collection of recovered psychological horror cases, abandoned recordings, forgotten investigations, and documented encounters gathered from isolated locations around the world.
+      Every exhibit inside the archive contains classified materials, distorted evidence, corrupted transmissions, and documented encounters gathered from forgotten places around the world.
 
-      Each exhibit contains fragments of events that were never meant to be publicly seen.
+      Some stories were hidden.
 
-      Some files remain incomplete.
+      Some were buried.
 
-      Others were sealed for a reason.
+      And some were never supposed to survive.
 
     </div>
 
     <a href="#" class="enter">
-      ENTER ARCHIVE
+      ENTER THE ARCHIVE
       <i class="fa-solid fa-arrow-right"></i>
     </a>
 
-    <div class="bottom">
+    <div class="footer">
 
-      <div class="social-text">
-        FOLLOW THE ARCHIVE
+      <div class="archive">
+        OFFICIAL SIGNAL CHANNELS
       </div>
 
       <div class="socials">
 
-        <a href="https://discord.gg/3tEPay3z2">
+        <a href="https://discord.gg/3tEPay3z2" target="_blank">
           <i class="fa-brands fa-discord"></i>
         </a>
 
-        <a href="https://instagram.com/finalnight12">
+        <a href="https://instagram.com/finalnight12" target="_blank">
           <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a href="https://x.com/finalnight12">
+        <a href="https://x.com/finalnight12" target="_blank">
           <i class="fa-brands fa-x-twitter"></i>
         </a>
 
-        <a href="https://tiktok.com/@finalnight12">
+        <a href="https://tiktok.com/@finalnight12" target="_blank">
           <i class="fa-brands fa-tiktok"></i>
         </a>
 
-        <a href="https://youtube.com">
+        <a href="https://www.youtube.com/channel/UCZA1MQWS_yR4YKM66zA8izg" target="_blank">
           <i class="fa-brands fa-youtube"></i>
         </a>
 
