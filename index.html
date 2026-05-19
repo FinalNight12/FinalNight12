@@ -1,245 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FinalNight12</title>
+<title>FinalNight12</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body{
-      background:#000;
-      color:white;
-      font-family:'Poppins', sans-serif;
+body{
 
-      height:100vh;
-      overflow:hidden;
+  background:#0a0a0a;
+  color:white;
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
+  font-family:'Inter',sans-serif;
 
-      text-align:center;
+  overflow:hidden;
+  height:100vh;
 
-      position:relative;
-    }
+  position:relative;
+}
 
-    body::before{
-      content:"";
-      position:absolute;
-      inset:0;
+/* الخلفية */
 
-      background:
-      radial-gradient(circle at center,
-      rgba(255,255,255,0.05),
-      transparent 70%);
+.bg{
 
-      z-index:0;
-    }
+  position:absolute;
+  inset:0;
 
-    .content{
-      position:relative;
-      z-index:2;
+  background:
+  linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.88)),
+  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
 
-      width:100%;
-      padding:20px;
+  background-size:cover;
+  background-position:center;
 
-      animation:fadeIn 2s ease;
-    }
+  filter:grayscale(100%) brightness(0.45);
 
-    h1{
-      font-family:'Creepster', cursive;
+  animation:bgZoom 20s ease-in-out infinite alternate;
+}
 
-      font-size:5rem;
-      font-weight:normal;
+@keyframes bgZoom{
 
-      color:#fff;
+  from{
+    transform:scale(1);
+  }
 
-      margin-bottom:10px;
+  to{
+    transform:scale(1.08);
+  }
 
-      text-shadow:
-      0 0 4px rgba(255,255,255,0.6),
-      0 0 10px rgba(255,255,255,0.25);
+}
 
-      animation:softFlicker 5s infinite;
-    }
+/* ضباب */
 
-    @keyframes softFlicker{
+.fog{
 
-      0%{opacity:1;}
-      48%{opacity:0.97;}
-      50%{opacity:0.85;}
-      52%{opacity:1;}
-      100%{opacity:0.98;}
+  position:absolute;
+  inset:0;
 
-    }
+  background:url('https://i.imgur.com/8IuucQZ.png');
 
-    /* Description */
-    .description{
+  opacity:0.08;
 
-      max-width:1050px;
+  animation:fogMove 50s linear infinite;
 
-      margin:auto;
-      margin-bottom:55px;
+  mix-blend-mode:screen;
+}
 
-      color:#d0d0d0;
+@keyframes fogMove{
 
-      font-size:1.05rem;
-      line-height:1.9;
+  from{
+    transform:translateX(0);
+  }
 
-      font-weight:300;
+  to{
+    transform:translateX(-1000px);
+  }
 
-      letter-spacing:0.4px;
-    }
+}
 
-    /* اسم اللعبة داخل الوصف - تم تعديله ليكون خفيفاً */
-    .game-name{
-      color:#ffffff;
-      letter-spacing:1px;
-      font-weight:300; /* الوزن الخفيف كما طلبت */
-    }
+/* خطوط الشاشة */
 
-    /* Social text */
-    .social-text{
+.scanlines{
 
-      color:#777;
+  position:absolute;
+  inset:0;
 
-      font-size:0.95rem;
+  background:
+  repeating-linear-gradient(
+    transparent 0px,
+    transparent 2px,
+    rgba(255,255,255,0.03) 3px
+  );
 
-      letter-spacing:4px;
+  pointer-events:none;
 
-      text-transform:uppercase;
+  z-index:5;
+}
 
-      margin-bottom:24px;
-    }
+/* المحتوى */
 
-    /* Social icons */
-    .socials{
+.container{
 
-      display:flex;
-      justify-content:center;
-      align-items:center;
+  position:relative;
+  z-index:10;
 
-      gap:22px;
+  width:100%;
+  height:100%;
 
-      flex-wrap:wrap;
-    }
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-    .socials a{
+  text-align:center;
 
-      width:60px;
-      height:60px;
+  padding:20px;
+}
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+.content{
 
-      border-radius:18px;
+  max-width:950px;
 
-      color:white;
+  animation:fadeIn 2s ease;
+}
 
-      font-size:1.4rem;
+/* العنوان */
 
-      text-decoration:none;
+.logo{
 
-      border:1px solid rgba(255,255,255,0.12);
+  font-family:'Oswald',sans-serif;
 
-      background:rgba(255,255,255,0.03);
+  font-size:7rem;
 
-      transition:0.3s ease;
-    }
+  text-transform:uppercase;
 
-    .socials a:hover{
-      transform:translateY(-5px);
-      border-color:white;
-      box-shadow:0 0 15px rgba(255,255,255,0.25);
-    }
+  line-height:0.9;
 
-    .overlay{
+  letter-spacing:5px;
 
-      position:absolute;
-      inset:0;
+  margin-bottom:25px;
 
-      background:
-      repeating-linear-gradient(
-      transparent 0px,
-      transparent 2px,
-      rgba(255,255,255,0.03) 3px
-      );
+  color:white;
 
-      pointer-events:none;
+  text-shadow:
+  0 0 10px rgba(255,255,255,0.08),
+  0 0 30px rgba(255,255,255,0.08);
 
-      z-index:1;
+  animation:flicker 6s infinite;
+}
 
-      animation:scan 0.25s linear infinite;
-    }
+.logo span{
 
-    @keyframes scan{
-      from{transform:translateY(0);}
-      to{transform:translateY(3px);}
-    }
+  display:block;
 
-    @keyframes fadeIn{
-      from{opacity:0; transform:translateY(20px);}
-      to{opacity:1; transform:translateY(0);}
-    }
+  font-size:2rem;
 
-    @media(max-width:768px){
+  letter-spacing:12px;
 
-      h1{font-size:3.7rem;}
+  color:#8f8f8f;
 
-      .description{
-        font-size:0.95rem;
-        line-height:1.8;
-        padding:0 10px;
-      }
+  margin-top:12px;
+}
 
-      .socials a{
-        width:54px;
-        height:54px;
-      }
+/* وصف */
 
-    }
+.description{
 
-  </style>
+  color:#cfcfcf;
 
+  font-size:1rem;
+
+  line-height:2;
+
+  font-weight:300;
+
+  max-width:850px;
+
+  margin:auto;
+
+  margin-bottom:50px;
+}
+
+/* زر */
+
+.enter-btn{
+
+  display:inline-block;
+
+  padding:16px 45px;
+
+  border:1px solid rgba(255,255,255,0.18);
+
+  color:white;
+
+  text-decoration:none;
+
+  letter-spacing:5px;
+
+  text-transform:uppercase;
+
+  font-size:0.9rem;
+
+  background:rgba(255,255,255,0.03);
+
+  backdrop-filter:blur(4px);
+
+  transition:0.4s ease;
+
+  margin-bottom:55px;
+}
+
+.enter-btn:hover{
+
+  background:white;
+  color:black;
+
+  transform:scale(1.05);
+
+  box-shadow:
+  0 0 25px rgba(255,255,255,0.25);
+}
+
+/* السوشال */
+
+.social-title{
+
+  color:#777;
+
+  font-size:0.8rem;
+
+  letter-spacing:7px;
+
+  margin-bottom:22px;
+
+  text-transform:uppercase;
+}
+
+.socials{
+
+  display:flex;
+  justify-content:center;
+  gap:18px;
+
+  flex-wrap:wrap;
+}
+
+.socials a{
+
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+
+  text-decoration:none;
+
+  border:1px solid rgba(255,255,255,0.12);
+
+  background:rgba(255,255,255,0.03);
+
+  transition:0.35s ease;
+
+  font-size:1.2rem;
+}
+
+.socials a:hover{
+
+  transform:translateY(-6px);
+
+  background:white;
+
+  color:black;
+
+  box-shadow:
+  0 0 20px rgba(255,255,255,0.3);
+}
+
+/* انيميشن */
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+@keyframes flicker{
+
+  0%{opacity:1;}
+  3%{opacity:0.8;}
+  6%{opacity:1;}
+  9%{opacity:0.9;}
+  12%{opacity:1;}
+  100%{opacity:1;}
+}
+
+/* موبايل */
+
+@media(max-width:768px){
+
+  .logo{
+    font-size:4.3rem;
+  }
+
+  .logo span{
+    font-size:1.1rem;
+    letter-spacing:5px;
+  }
+
+  .description{
+    font-size:0.92rem;
+    line-height:1.8;
+  }
+
+  .enter-btn{
+    padding:14px 30px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="bg"></div>
+
+<div class="fog"></div>
+
+<div class="scanlines"></div>
+
+<div class="container">
+
   <div class="content">
 
-    <h1>FinalNight12</h1>
+    <div class="logo">
+      FINAL
+      <span>NIGHT 12</span>
+    </div>
 
     <div class="description">
 
-      <span class="game-name">FinalNight12</span>
+      FinalNight12 is a cinematic psychological horror experience inspired by abandoned worlds, infection collapse, and archived nightmare files.
 
-      ...
+      Every case contains forbidden recordings, missing persons reports, corrupted tapes, and stories based on real fears hidden beneath society.
 
-      is a psychological horror experience built from archived horror files ...
+      This is not just a game universe.
 
-      each file documents a different case based on real events ...
-
-      these are not just stories ...
-
-      they are records of what actually happened.
+      This is evidence.
 
     </div>
 
-    <div class="social-text">
-      @finalnight12 on socials
+    <a href="#" class="enter-btn">
+      Enter The Archive
+    </a>
+
+    <div class="social-title">
+      Follow The Signals
     </div>
 
     <div class="socials">
@@ -260,7 +400,7 @@
         <i class="fa-brands fa-tiktok"></i>
       </a>
 
-      <a href="https://www.youtube.com/channel/UCZA1MQWS_yR4YKM66zA8izg" target="_blank">
+      <a href="https://youtube.com" target="_blank">
         <i class="fa-brands fa-youtube"></i>
       </a>
 
@@ -272,7 +412,7 @@
 
   </div>
 
-  <div class="overlay"></div>
+</div>
 
 </body>
 </html>
