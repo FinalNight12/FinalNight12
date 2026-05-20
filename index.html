@@ -17,16 +17,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   box-sizing:border-box;
 }
 
+/* ===== BODY FIX (مهم للجوال) ===== */
 body{
   background:#0a0a0a;
   color:white;
   font-family:'Inter', sans-serif;
-  height:100vh;
-  overflow:hidden;
+
+  min-height:100vh;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 .container{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -42,15 +45,18 @@ body{
   margin-top:40px;
 }
 
+/* ===== TITLE ===== */
 h1{
   font-family:'Cinzel', serif;
   font-size:64px;
   font-weight:300;
   letter-spacing:8px;
   text-transform:uppercase;
+
   color:#f5f5f5;
   margin-bottom:20px;
   text-align:center;
+
   text-shadow:0 0 30px rgba(255,255,255,0.05);
 }
 
@@ -60,14 +66,8 @@ h1{
   font-size:16.5px;
   line-height:1.9;
   font-weight:200;
-  color:#c2c2c2;
-  opacity:1;
-  letter-spacing:0.2px;
-}
 
-/* glitch */
-.dim{
-  opacity:0.2;
+  color:#c2c2c2;
 }
 
 /* ===== FOOTER ===== */
@@ -96,6 +96,37 @@ h1{
   opacity:0.6;
   transition:0.3s ease;
 }
+
+.socials a:hover{
+  opacity:1;
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width:768px){
+
+  .container{
+    padding:30px 18px;
+    justify-content:flex-start;
+    gap:40px;
+  }
+
+  h1{
+    font-size:40px;
+    letter-spacing:5px;
+  }
+
+  .hero{
+    margin-top:20px;
+  }
+
+  .desc{
+    font-size:14px;
+  }
+
+  .socials a{
+    font-size:18px;
+  }
+}
 </style>
 </head>
 
@@ -120,12 +151,29 @@ h1{
     <div class="social-title">@FINALNIGHT12 ON SOCIALS</div>
 
     <div class="socials">
-      <a href="https://www.tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://discord.com" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://twitch.tv" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+      <a href="https://www.tiktok.com/@finalnight12" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+
+      <a href="https://www.instagram.com/finalnight12" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+      <a href="https://www.youtube.com/@finalnight12" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+
+      <a href="https://x.com/finalnight12" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <a href="https://discord.gg/yourinvite" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+
+      <a href="https://twitch.tv/finalnight12" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-twitch"></i>
+      </a>
     </div>
   </div>
 
@@ -145,7 +193,7 @@ const words = [
 
 const symbols = ["!", "@", "*", "#", "$", "-", "+"];
 
-/* 🎭 glitch */
+/* ===== GLITCH ===== */
 function glitch(el, original){
 
   let count = 0;
@@ -168,19 +216,19 @@ function glitch(el, original){
   }, 70);
 }
 
-/* 🔥 عنوان كل 15 ثانية */
+/* ===== TITLE GLITCH ===== */
 function titleGlitch(){
   glitch(title, "FinalNight12");
 }
 
-/* 🚀 كل الكلمات مع بعض */
+/* ===== WORDS GLITCH ===== */
 function glitchAllWords(){
   words.forEach(el => {
     glitch(el, el.textContent);
   });
 }
 
-/* تشغيل */
+/* ===== START ===== */
 window.addEventListener("load", () => {
 
   setTimeout(() => {
