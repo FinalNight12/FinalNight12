@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FinalNight12</title>
 
-<title>FINAL NIGHT ARCHIVE</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -19,292 +18,139 @@
 }
 
 body{
+  background:#0a0a0a;
+  color:white;
+  font-family:'Inter', sans-serif;
   height:100vh;
   overflow:hidden;
-  background:#070707;
-  font-family:'Inter',sans-serif;
-  color:#e9e2d6;
 }
 
-/* ====== BACKGROUND ====== */
-
-.bg{
-  position:absolute;
-  inset:0;
-
-  background:
-  linear-gradient(rgba(0,0,0,0.70),rgba(0,0,0,0.92)),
-  url('https://images.unsplash.com/photo-1520975922284-9c5f5c6b4c21?q=80&w=2070&auto=format&fit=crop');
-
-  background-size:cover;
-  background-position:center;
-
-  filter:contrast(1.1) brightness(0.45);
-}
-
-/* ضوء متحف */
-.light{
-  position:absolute;
-  top:-20%;
-  left:50%;
-  transform:translateX(-50%);
-  width:900px;
-  height:900px;
-
-  background:radial-gradient(circle,
-  rgba(255,240,210,0.12),
-  transparent 65%);
-
-  pointer-events:none;
-}
-
-/* noise */
-.noise{
-  position:absolute;
-  inset:0;
-  background-image:url("https://i.imgur.com/oM0ZL4P.png");
-  opacity:0.03;
-  mix-blend-mode:soft-light;
-}
-
-/* frame */
-.frame{
-  position:absolute;
-  inset:40px;
-  border:1px solid rgba(255,255,255,0.08);
-  pointer-events:none;
-}
-
-/* ====== CONTAINER ====== */
-
+/* ===== MODERN LAYOUT ===== */
 .container{
-  position:relative;
-  height:100%;
+  height:100vh;
   display:flex;
-  justify-content:center;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:60px 40px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  display:flex;
+  flex-direction:column;
   align-items:center;
-  padding:50px;
-  z-index:10;
+  text-align:center;
+  margin-top:40px;
 }
 
-.panel{
-  max-width:1200px;
-  width:100%;
-
-  padding:80px;
-
-  background:rgba(10,10,10,0.55);
-  backdrop-filter:blur(10px);
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  box-shadow:0 50px 120px rgba(0,0,0,0.7);
-
-  animation:fadeUp 1.5s ease;
-}
-
-/* ====== TITLE ====== */
-
-.title{
-  font-family:'Cinzel',serif;
-  font-size:5.5rem;
-  letter-spacing:10px;
+h1{
+  font-family:'Cinzel', serif;
+  font-size:64px;
+  letter-spacing:14px;
+  font-weight:500;
   text-transform:uppercase;
-
-  margin-bottom:10px;
+  color:#f5f5f5;
+  margin-bottom:20px;
+  text-shadow:0 0 60px rgba(255,255,255,0.06);
 }
 
-.subtitle{
-  color:#9a9186;
-  letter-spacing:8px;
-  text-transform:uppercase;
-  font-size:0.85rem;
-  margin-bottom:40px;
+h1.dim{ opacity:0.25; }
+
+/* ===== DESCRIPTION ===== */
+.desc{
+  max-width:720px;
+  font-size:16.5px;
+  line-height:1.9;
+  font-weight:200;
+  color:#cfcfcf;
+  opacity:0.9;
 }
 
-/* ====== TEXT ====== */
-
-.text{
-  max-width:900px;
-  font-size:1.05rem;
-  line-height:2.2;
-  color:#d6cfc3;
-  font-weight:300;
-
-  margin-bottom:60px;
-}
-
-/* ====== BUTTON ====== */
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:14px;
-
-  padding:18px 40px;
-
-  border:1px solid rgba(255,255,255,0.12);
-
-  background:rgba(255,255,255,0.03);
-
-  color:#e9e2d6;
-
-  text-decoration:none;
-
-  letter-spacing:5px;
-  text-transform:uppercase;
-
-  transition:0.35s ease;
-
-  margin-bottom:70px;
-}
-
-.btn:hover{
-  background:#e9e2d6;
-  color:#070707;
-  transform:translateY(-3px);
-}
-
-/* ====== SOCIAL ====== */
-
+/* ===== FOOTER SOCIALS ===== */
 .footer{
   display:flex;
-  justify-content:space-between;
+  flex-direction:column;
   align-items:center;
-  flex-wrap:wrap;
-  gap:20px;
+  gap:14px;
+  padding-bottom:10px;
 }
 
-.label{
-  color:#7f786d;
-  letter-spacing:6px;
-  font-size:0.75rem;
-  text-transform:uppercase;
+.social-title{
+  font-size:12px;
+  letter-spacing:5px;
+  opacity:0.6;
 }
 
 .socials{
   display:flex;
-  gap:12px;
+  gap:22px;
 }
 
 .socials a{
-  width:52px;
-  height:52px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid rgba(255,255,255,0.08);
-  background:rgba(255,255,255,0.03);
-
-  color:#e9e2d6;
-
-  text-decoration:none;
-
+  color:white;
+  font-size:22px;
+  opacity:0.6;
   transition:0.3s ease;
 }
 
 .socials a:hover{
-  background:#e9e2d6;
-  color:#070707;
-  transform:translateY(-3px);
+  opacity:1;
+  transform:translateY(-3px) scale(1.1);
 }
-
-/* ====== ANIMATION ====== */
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* ====== MOBILE ====== */
-
-@media(max-width:900px){
-
-  .panel{
-    padding:40px 25px;
-  }
-
-  .title{
-    font-size:3.2rem;
-    letter-spacing:6px;
-  }
-
-  .text{
-    font-size:0.95rem;
-  }
-
-  .footer{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="light"></div>
-<div class="noise"></div>
-<div class="frame"></div>
-
 <div class="container">
 
-  <div class="panel">
+  <!-- HERO -->
+  <div class="hero">
+    <h1 id="title">FinalNight12</h1>
 
-    <div class="title">FINAL NIGHT</div>
-    <div class="subtitle">ARCHIVE OF LOST CASES</div>
+    <p class="desc">
+      FinalNight12 is a psychological horror experience built from horror cases ...
+      each case is based on real events ...
+      these are not just stories ...
+      they are records of what actually happened to real people.
+    </p>
+  </div>
 
-    <div class="text">
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="social-title">@FINALNIGHT12 ON SOCIALS</div>
 
-      Welcome to the Final Night Archive — a curated collection of recovered horror cases, abandoned investigations, and classified recordings.
-
-      Each file contains fragments of events that were never meant to be documented.
-
-      Some were sealed.
-
-      Some were erased.
-
-      And some are still active.
-
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-discord"></i></a>
+      <a href="#"><i class="fa-brands fa-twitch"></i></a>
     </div>
-
-    <a class="btn" href="#">
-      ENTER ARCHIVE
-      <i class="fa-solid fa-arrow-right"></i>
-    </a>
-
-    <div class="footer">
-
-      <div class="label">
-        OFFICIAL CHANNELS
-      </div>
-
-      <div class="socials">
-
-        <a href="https://discord.gg/" target="_blank"><i class="fa-brands fa-discord"></i></a>
-        <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-
-      </div>
-
-    </div>
-
   </div>
 
 </div>
+
+<script>
+const title = document.getElementById("title");
+
+function flicker(){
+  const r = Math.random();
+
+  if(r < 0.04){
+    title.classList.add("dim");
+    setTimeout(()=>title.classList.remove("dim"),120);
+  }
+
+  if(r > 0.992){
+    title.classList.add("dim");
+    setTimeout(()=>title.classList.remove("dim"),200);
+  }
+}
+
+setInterval(flicker, 500);
+</script>
 
 </body>
 </html>
